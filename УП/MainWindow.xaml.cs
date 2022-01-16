@@ -24,26 +24,56 @@ namespace УП
         public MainWindow()
         {
             InitializeComponent();
+            Value.Focus();
         }
 
         
         private void CalculationOfTheFirstNumber_Click(object sender, RoutedEventArgs e)
         {
-            int value = Convert.ToInt32(Value.Text);
-            bool da = Class1.Calculate1(value);
-            if (da == true) Rez.Text = "Верно (Все цифры одинаковы)";
-            else Rez.Text = "Неверно (Цифры не одинаковы)";
-        }
+            Value.Focus();
+            try
+            {
+                int value = Convert.ToInt32(Value.Text);
+                if (value > 99)
+                {
+                    bool da = Class1.Calculate1(value);
+                    if (da == true) Rez.Text = "Верно (Все цифры одинаковы)";
+                    else Rez.Text = "Неверно (Цифры не одинаковы)";
+                }
+                else
+                {
+                    MessageBox.Show("Неверные данные!", "Ошибка", MessageBoxButton.OK,
+                      MessageBoxImage.Error);
+                    Value.Focus();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Неверные данные!", "Ошибка", MessageBoxButton.OK,
+                  MessageBoxImage.Error);
+                Value.Focus();
+            }
+}
 
         private void CalculationOfTheSecondNumber_Click(object sender, RoutedEventArgs e)
         {
-            int value1 = Convert.ToInt32(Value1.Text);
-            int value2 = Convert.ToInt32(Value2.Text);
-            int value3 = Convert.ToInt32(Value3.Text);
-            Class1.Calculate2(value1, value2, value3, out int kol1, out int kol2);
-            Kol1.Text = kol1.ToString();
-            Kol2.Text = kol2.ToString();
-        }
+            Value1.Focus();
+            try
+            {
+                int value1 = Convert.ToInt32(Value1.Text);
+                int value2 = Convert.ToInt32(Value2.Text);
+                int value3 = Convert.ToInt32(Value3.Text);
+                Class1.Calculate2(value1, value2, value3, out int kol1, out int kol2);
+                Kol1.Text = Convert.ToString(kol1);
+                Kol2.Text = Convert.ToString(kol2);
+            }
+            catch
+            {
+                MessageBox.Show("Неверные данные!", "Ошибка", MessageBoxButton.OK,
+                  MessageBoxImage.Error);
+                Value1.Focus();
+            }
+}
         private void CalculationOfTheThirdNumber_Click(object sender, RoutedEventArgs e)
         {
 
