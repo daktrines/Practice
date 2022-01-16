@@ -5,32 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:УП"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="УП по РПМ" Height="450" Width="800">
     <Grid>
         <TabControl HorizontalAlignment="Left" Height="342" Margin="10,37,0,0" VerticalAlignment="Top" Width="490">
-            <TabItem Header="TabItem">
+            <TabItem Header="Задание 1">
                 <Grid Background="#FFE5E5E5">
                     <TextBox x:Name="Value" HorizontalAlignment="Left" Height="23" Margin="56,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" MaxLength="3"/>
-                    <TextBox x:Name="Rez" IsReadOnly="True" HorizontalAlignment="Left" Height="24" Margin="56,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224"/>
-                    <Button Content="Button" HorizontalAlignment="Left" Margin="91,157,0,0" VerticalAlignment="Top" Width="75" Click="CalculationOfTheFirstNumber_Click"/>
+                    <TextBox x:Name="Rez" IsReadOnly="True" HorizontalAlignment="Left" Height="24" Margin="56,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="224"/>
+                    <Button Content="Рассчитать" HorizontalAlignment="Left" Margin="72,97,0,0" VerticalAlignment="Top" Width="74" Click="CalculationOfTheFirstNumber_Click"/>
+                    <Label Content="Число" HorizontalAlignment="Left" Margin="10,49,0,0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="TabItem">
+            <TabItem Header="Задание 2">
                 <Grid Background="#FFE5E5E5">
-                    <TextBox x:Name="Value1" HorizontalAlignment="Left" Height="22" Margin="32,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                    <TextBox x:Name="Value2" HorizontalAlignment="Left" Height="22" Margin="32,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                    <TextBox x:Name="Value3" HorizontalAlignment="Left" Height="22" Margin="32,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="Value1" HorizontalAlignment="Left" Height="22" Margin="122,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="Value2" HorizontalAlignment="Left" Height="22" Margin="122,71,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                    <TextBox x:Name="Value3" HorizontalAlignment="Left" Height="22" Margin="122,98,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                     <TextBox x:Name="Kol1" IsReadOnly="True" HorizontalAlignment="Left" Height="22" Margin="218,195,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                     <TextBox x:Name="Kol2" IsReadOnly="True" HorizontalAlignment="Left" Height="22" Margin="218,222,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                    <Button Content="Button" HorizontalAlignment="Left" Margin="32,140,0,0" VerticalAlignment="Top" Width="120" Click="CalculationOfTheSecondNumber_Click"/>
+                    <Button Content="Рассчитать" HorizontalAlignment="Left" Margin="122,142,0,0" VerticalAlignment="Top" Width="120" Click="CalculationOfTheSecondNumber_Click"/>
                     <Label Content="Количество положительных" HorizontalAlignment="Left" Margin="32,191,0,0" VerticalAlignment="Top"/>
                     <Label Content="Количество отрицательных" HorizontalAlignment="Left" Margin="32,217,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Первое число" HorizontalAlignment="Left" Margin="10,44,0,0" VerticalAlignment="Top" Width="107"/>
+                    <Label Content="Второе число" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top" Width="107"/>
+                    <Label Content="Третье число" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top" Width="107"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="TabItem">
+            <TabItem Header="Задание 3">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
-            <TabItem Header="TabItem">
+            <TabItem Header="Задание 4">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
         </TabControl>
