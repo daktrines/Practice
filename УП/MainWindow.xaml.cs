@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using ProgramLibrary;
 
 namespace УП
@@ -26,8 +27,8 @@ namespace УП
             InitializeComponent();
             Value.Focus();
         }
+        DispatcherTimer _timer;// Описываем таймер
 
-        
         private void CalculationOfTheFirstNumber_Click(object sender, RoutedEventArgs e)
         {
             Value.Focus();
@@ -63,9 +64,9 @@ namespace УП
                 int value1 = Convert.ToInt32(Value1.Text);
                 int value2 = Convert.ToInt32(Value2.Text);
                 int value3 = Convert.ToInt32(Value3.Text);
-                Class1.Calculate2(value1, value2, value3, out int kol1, out int kol2);
-                Kol1.Text = Convert.ToString(kol1);
-                Kol2.Text = Convert.ToString(kol2);
+                Class1.Calculate2(value1, value2, value3, out int kol, out int kol1);
+                KolPositive.Text = Convert.ToString(kol);
+                KolNegative.Text = Convert.ToString(kol1);
             }
             catch
             {
@@ -81,6 +82,23 @@ namespace УП
         private void CalculationOfTheFourthNumber_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Windows_Loaded(object sender, RoutedEventArgs e)
+        {
+            //Добавляем таймер
+            _timer = new DispatcherTimer();
+            _timer.Tick += Timer_Tick;
+            _timer.Interval = new TimeSpan(0, 0, 0, 1, 0);
+            _timer.IsEnabled = true;
+        }
+
+        //Создаем вручную событие таймера
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            DateTime d = DateTime.Now;//Создание обьекта
+            time.Text = d.ToString("HH:mm");//Время
+            date.Text = d.ToString("dd.MM.yyyy");//Дата
         }
     }
 }
