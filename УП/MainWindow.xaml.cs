@@ -29,6 +29,20 @@ namespace УП
         }
         DispatcherTimer _timer;// Описываем таймер
 
+        private void Information_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Калион Екатерина " +
+                "\n1.Ввести трехзначное число. Определить: верно ли, что все его цифры одинаковые ?" +
+                "\n2.Ввести три целых числа.Найти количество положительных и отрицательных чисел." +
+                "\n3.Дан массив.Определить на сколько максимальный элемент больше минимального." +
+                "\n4.Сформировать одномерный массив из количества элементов в диапазоне" +
+                "\nзначений а - b строк матрицы.", "Информация", MessageBoxButton.OK, MessageBoxImage.Question);
+        }
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
         private void CalculationOfTheFirstNumber_Click(object sender, RoutedEventArgs e)
         {
             Value.Focus();
