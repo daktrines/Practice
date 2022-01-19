@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:УП"
         mc:Ignorable="d"
-        Title="УП по РПМ" Height="459" Width="562.666" WindowStartupLocation="CenterScreen" Loaded="Windows_Loaded">
+        Title="УП по РПМ" Height="459" Width="562.666" WindowStartupLocation="CenterScreen" Loaded="Windows_Loaded" MinHeight="459" MinWidth="563" Closing="Windows_Closing" Icon="coding_computer_pc_screen_code_icon_193925.ico">
     <Grid>
         <TabControl HorizontalAlignment="Left" Height="351" Margin="10,28,0,0" VerticalAlignment="Top" Width="529" FontSize="14">
             <TabItem Header="Задание 1">
@@ -13,12 +13,12 @@
                     <GroupBox Header="Исходные данные" HorizontalAlignment="Left" Height="129" Margin="10,10,0,0" VerticalAlignment="Top" Width="292" FontSize="14">
                         <Grid>
                             <Label Content="Трехзначное число -" HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top"/>
-                            <TextBox x:Name="Value" HorizontalAlignment="Left" Height="27" Margin="187,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="83" MaxLength="3"/>
+                            <TextBox x:Name="Value" HorizontalAlignment="Left" Height="27" Margin="187,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="83" MaxLength="3" TextChanged="Value_TextChanged"/>
                         </Grid>
                     </GroupBox>
                     <GroupBox Header="Результат" HorizontalAlignment="Left" Height="150" Margin="10,154,0,0" VerticalAlignment="Top" Width="312" FontSize="14">
                         <Grid >
-                            <Button Content="Рассчитать" IsDefault="True" HorizontalAlignment="Left" Margin="38,10,0,0" VerticalAlignment="Top" Width="227" Click="CalculationOfTheFirstNumber_Click" Height="38"/>
+                            <Button Content="Определить" IsDefault="True" HorizontalAlignment="Left" Margin="38,10,0,0" VerticalAlignment="Top" Width="227" Click="CalculationOfTheFirstNumber_Click" Height="38"/>
                             <Button Content="Сброс " ToolTip="Сброс"  HorizontalAlignment="Left" Margin="111,88,0,0" VerticalAlignment="Top" Width="83" Height="26" Click="Reset_Click" ></Button>
                              <TextBox x:Name="Rez" IsReadOnly="True" HorizontalAlignment="Left" Height="30" Margin="10,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="280" TextAlignment="Center"/>
                         </Grid>
@@ -33,9 +33,9 @@
                             <Label Content="Первое число -" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top" Width="144" Height="30" FontSize="14"/>
                             <Label Content="Второе число -" HorizontalAlignment="Left" Margin="10,51,0,0" VerticalAlignment="Top" Width="144" Height="30" FontSize="14"/>
                             <Label Content="Третье число -" HorizontalAlignment="Left" Margin="10,86,0,0" VerticalAlignment="Top" Width="144" Height="30" FontSize="14"/>
-                            <TextBox x:Name="Value1" HorizontalAlignment="Left" Height="30" Margin="174,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                            <TextBox x:Name="Value2" HorizontalAlignment="Left" Height="30" Margin="174,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                            <TextBox x:Name="Value3" HorizontalAlignment="Left" Height="30" Margin="174,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                            <TextBox x:Name="Value1" HorizontalAlignment="Left" Height="30" Margin="174,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="Value1AndValue2AndValue3_TextChanged"/>
+                            <TextBox x:Name="Value2" HorizontalAlignment="Left" Height="30" Margin="174,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="Value1AndValue2AndValue3_TextChanged"/>
+                            <TextBox x:Name="Value3" HorizontalAlignment="Left" Height="30" Margin="174,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="Value1AndValue2AndValue3_TextChanged"/>
                         </Grid>
                     </GroupBox>
                     <GroupBox Header="Результат" HorizontalAlignment="Left" Height="131" Margin="10,173,0,0" VerticalAlignment="Top" Width="504" FontSize="14">
@@ -44,7 +44,7 @@
                             <Label Content="Количество отрицательных -" HorizontalAlignment="Left" Margin="132,54,0,0" VerticalAlignment="Top" Height="39"/>
                             <TextBox x:Name="KolPositive" IsReadOnly="True" HorizontalAlignment="Left" Height="28" Margin="365,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.583,0.341" TextAlignment="Center"/>
                             <TextBox x:Name="KolNegative" IsReadOnly="True" HorizontalAlignment="Left" Height="28" Margin="365,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextAlignment="Center"/>
-                            <Button Content="Рассчитать" IsDefault="True"  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="117" Click="CalculationOfTheSecondNumber_Click" Height="83"/>
+                            <Button Content="Найти" IsDefault="True"  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="117" Click="CalculationOfTheSecondNumber_Click" Height="83"/>
                         </Grid>
                     </GroupBox>
                 </Grid>
@@ -53,14 +53,13 @@
                 <Grid Background="#FFE5E5E5">
                     <GroupBox Header="Исходные данные" HorizontalAlignment="Left" Height="157" Margin="10,10,0,0" VerticalAlignment="Top" Width="503">
                         <Grid >
-                            <DataGrid x:Name="MasData"  CanUserAddRows="False" CellEditEnding="MatrData_CellEditEnding" FontSize="12"/>
-
+                            <DataGrid x:Name="MasData"  CanUserAddRows="False"  FontSize="12"/>
                         </Grid>
                     </GroupBox>
                     <GroupBox Header="Настройка" HorizontalAlignment="Left" Height="143" Margin="10,167,0,0" VerticalAlignment="Top" Width="250">
                         <Grid >
                             <Label Content="- Количество колонок" Margin="60,19,0,0" Height="39" VerticalAlignment="Top" HorizontalAlignment="Left" Width="156" Foreground="Black"></Label>
-                            <TextBox x:Name="KolStrok" HorizontalAlignment="Left" Height="39" Margin="10,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45"/>
+                            <TextBox x:Name="KolStrok" HorizontalAlignment="Left" Height="39" Margin="10,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" TextChanged="KolStrok_TextChanged"/>
                              <Button Content="Заполнить"  IsDefault="True"  Click="FillArray_Click" ToolTip="Создать и заполнить матрицу" Margin="10,72,10,0" Height="27" VerticalAlignment="Top"  />
                         </Grid>
                     </GroupBox>
@@ -85,8 +84,8 @@
                         <Grid >
                             <Label Content="- Кол. строк" Margin="50,4,0,0" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="90" ></Label>
                             <Label Content="- Кол. столбцов" Margin="50,33,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="112" ></Label>
-                            <TextBox x:Name="KolStrok1" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35"/>
-                            <TextBox x:Name="KolStolbcov" HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35"/>
+                            <TextBox x:Name="KolStrok1" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" TextChanged="KolStrok1AndKolStolbcov_TextChanged"/>
+                            <TextBox x:Name="KolStolbcov" HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" TextChanged="KolStrok1AndKolStolbcov_TextChanged"/>
                             <Button Content="Заполнить"  IsDefault="True"  Click="FillMatrix_Click" ToolTip="Создать и заполнить матрицу" Margin="10,72,10,0" Height="27" VerticalAlignment="Top"  />
                         </Grid>
                     </GroupBox>
@@ -102,7 +101,7 @@
                             <Label Content="До:" HorizontalAlignment="Left" Margin="25,45,0,0" VerticalAlignment="Top" Height="30"/>
                              <TextBox x:Name="A" HorizontalAlignment="Left" Height="30" Margin="74,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70"/>
                             <TextBox x:Name="B" HorizontalAlignment="Left" Height="30" Margin="74,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70"/>
-                            <Button Content="Рассчитать" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Width="142" Height="36" Click="CalculationOfTheFourthNumber_Click"/>
+                            <Button Content="Сформировать" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Width="142" Height="36" Click="CalculationOfTheFourthNumber_Click"/>
                         </Grid>
                     </GroupBox>
                 </Grid>
@@ -118,6 +117,19 @@
             <TextBlock x:Name="date" ToolTip="Дата" TextWrapping="Wrap" Width="107" Height="20" TextAlignment="Center" FontSize="14"/>
         </StatusBar>
         <Menu HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="555">
+            <MenuItem   Header="Команды">
+                <MenuItem  Header="Определить, одинаковы ли все цифры в числе" Click="CalculationOfTheFirstNumber_Click" />
+                <Separator ></Separator>
+                <MenuItem   Header="Найти количество положительных и отрицательных чисел" Click="CalculationOfTheSecondNumber_Click"/>
+                <Separator ></Separator>
+                <MenuItem   Header="Заполнить массив" Click="FillArray_Click"/>
+                <MenuItem   Header="Вычислить, на сколько максимальный элемент больше минимального" Click="CalculationOfTheThirdNumber_Click"/>
+                <Separator ></Separator>
+                <MenuItem   Header="Заполнить матрицу" Click="FillMatrix_Click"/>
+                <MenuItem   Header="Сформировать массив из выбранных чисел" Click="CalculationOfTheFourthNumber_Click"/>
+                <Separator ></Separator>
+                <MenuItem  Header="Сброс"  Click="Reset_Click"/>
+            </MenuItem>
             <MenuItem Header="О программе" Click="Information_Click" Height="23" />
             <MenuItem  Header="Выход" Click="Exit_Click"/>
         </Menu>

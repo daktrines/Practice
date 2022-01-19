@@ -56,7 +56,7 @@ namespace ProgramLibrary
             int minvalue = 1000, maxvalue = 0, rez = 0;
             for (int i = 0; i < mas.Length; i++)
             {
-                if (mas[i] > maxvalue) maxvalue = mas[i]; 
+                if (mas[i] > maxvalue) maxvalue = mas[i];
             
                 if (mas[i] < minvalue) minvalue = mas[i];
             }
@@ -64,6 +64,13 @@ namespace ProgramLibrary
             return rez;
         }
 
+        /// <summary>
+        /// Расчет 4 задания:
+        /// </summary>
+        /// <param name="matr"> двумерный массив </param>
+        /// <param name="a"> с этого числа начинается диапазон </param>
+        /// <param name="b"> этим числом заканчиваестя диапазон </param>
+        /// <param name="array"> одномерный массив </param>
         public static void Calculate4(int[,] matr, int a, int b, out int [] array)
         {
             int count = 0, k = 0;
@@ -86,7 +93,6 @@ namespace ProgramLibrary
                     }
                 }
             }
-
         }
     }
 }

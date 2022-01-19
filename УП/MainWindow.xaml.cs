@@ -33,6 +33,22 @@ namespace УП
         int[] array;
 
         DispatcherTimer _timer;// Описываем таймер
+        private void Windows_Loaded(object sender, RoutedEventArgs e)
+        {
+            //Добавляем таймер
+            _timer = new DispatcherTimer();
+            _timer.Tick += Timer_Tick;
+            _timer.Interval = new TimeSpan(0, 0, 0, 1, 0);
+            _timer.IsEnabled = true;
+        }
+
+        //Создаем вручную событие таймера
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            DateTime d = DateTime.Now;//Создание обьекта
+            time.Text = d.ToString("HH:mm");//Время
+            date.Text = d.ToString("dd.MM.yyyy");//Дата
+        }
 
         private void Information_Click(object sender, RoutedEventArgs e)
         {
@@ -43,11 +59,21 @@ namespace УП
                 "\n4.Сформировать одномерный массив из количества элементов в диапазоне" +
                 "\nзначений а - b строк матрицы.", "Информация", MessageBoxButton.OK, MessageBoxImage.Question);
         }
+
+        //Закрытие программы
+        private void Windows_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Вы желаете выйти из программы?", "Выход из программы", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.No) e.Cancel = true;//Если нет, то мы не выходим из программы
+        }
+
+        //Выход из программы
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
 
+        //Расчет задания №1
         private void CalculationOfTheFirstNumber_Click(object sender, RoutedEventArgs e)
         {
             Value.Focus();
@@ -74,7 +100,12 @@ namespace УП
                 Value.Focus();
             }
         }
+        private void Value_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Rez.Clear();
+        }
 
+        //Расчет задания №2
         private void CalculationOfTheSecondNumber_Click(object sender, RoutedEventArgs e)
         {
             Value1.Focus();
@@ -94,41 +125,39 @@ namespace УП
                 Value1.Focus();
             }
         }
-
-
-        private void Windows_Loaded(object sender, RoutedEventArgs e)
+        private void Value1AndValue2AndValue3_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //Добавляем таймер
-            _timer = new DispatcherTimer();
-            _timer.Tick += Timer_Tick;
-            _timer.Interval = new TimeSpan(0, 0, 0, 1, 0);
-            _timer.IsEnabled = true;
+            KolPositive.Clear();
+            KolNegative.Clear();
         }
 
-        //Создаем вручную событие таймера
-        private void Timer_Tick(object sender, EventArgs e)
+        //Расчет задания №3
+        private void CalculationOfTheThirdNumber_Click(object sender, RoutedEventArgs e)
         {
-            DateTime d = DateTime.Now;//Создание обьекта
-            time.Text = d.ToString("HH:mm");//Время
-            date.Text = d.ToString("dd.MM.yyyy");//Дата
-        }
-        //Редактирование ячеек
-        private void MatrData_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
-        {
-            //Очищаем textbox с результатом 
+            KolStrok.Focus();
             Rez1.Clear();
 
-            //Определяем номер столбца
-            int columnIndex = e.Column.DisplayIndex;
-            //Определяем номер строки
-            int rowIndex = e.Row.GetIndex();
-
-            //Заносим  отредоктированое значение в соответствующую ячейку матрицы
-            if (Int32.TryParse(((TextBox)e.EditingElement).Text, out matr[rowIndex, columnIndex]))
-            { }
-            else MessageBox.Show("Неверные данные!", "Ошибка", MessageBoxButton.OK,
+            if (mas == null || mas.Length == 0)
+            {
+                MessageBox.Show("Вы не создали матрицу, укажите размеры матрицы и нажмите кнопку Заполнить", "Ошибка", MessageBoxButton.OK,
                     MessageBoxImage.Error);
+            }
+            else
+            {
+                try
+                {
+                    int rez = Class1.Calculate3(mas);
+                    Rez1.Text = Convert.ToString(rez);
+                }
+                catch
+                {
+                    MessageBox.Show("Неверные данные!", "Ошибка", MessageBoxButton.OK,
+                      MessageBoxImage.Error);
+                    KolStrok.Focus();
+                }
+            }
         }
+
         //Заполнение массива
         private void FillArray_Click(object sender, RoutedEventArgs e)
         {
@@ -159,14 +188,18 @@ namespace УП
                   MessageBoxImage.Error);
                 KolStrok.Focus();
             }
-
         }
-        //Расчет задания для матрицы
-        private void CalculationOfTheThirdNumber_Click(object sender, RoutedEventArgs e)
+        private void KolStrok_TextChanged(object sender, TextChangedEventArgs e)
         {
+            MasData.ItemsSource = null;
             Rez1.Clear();
+        }
 
-            if (mas == null || mas.Length == 0)
+        //Расчет задания №4
+        private void CalculationOfTheFourthNumber_Click(object sender, RoutedEventArgs e)
+        {
+            KolStrok1.Focus();
+            if (matr == null || matr.Length == 0)
             {
                 MessageBox.Show("Вы не создали матрицу, укажите размеры матрицы и нажмите кнопку Заполнить", "Ошибка", MessageBoxButton.OK,
                     MessageBoxImage.Error);
@@ -175,43 +208,22 @@ namespace УП
             {
                 try
                 {
-                    int rez = Class1.Calculate3(mas);
-                    Rez1.Text = Convert.ToString(rez);
+                    int a = Convert.ToInt32(A.Text);
+                    int b = Convert.ToInt32(B.Text);
+                    Class1.Calculate4(matr, a, b, out array);
 
-                   
+                    //Выводим матрицу на форму
+                    MasDataRez.ItemsSource = VisualArray.ToDataTable(array).DefaultView;
                 }
                 catch
                 {
                     MessageBox.Show("Неверные данные!", "Ошибка", MessageBoxButton.OK,
                       MessageBoxImage.Error);
-                    KolStrok.Focus();
+                    KolStrok1.Focus();
                 }
-            } 
+            }
         }
 
-
-        //Очищение матрицы
-        private void Reset_Click(object sender, RoutedEventArgs e)
-        {
-            //Очищаем остальные текстбоксы
-            Value.Clear();
-            Value1.Clear();
-            Value2.Clear();
-            Value3.Clear();
-            Rez.Clear();
-            A.Clear();
-            B.Clear();
-            MasDataRez.ItemsSource = null;
-            KolPositive.Clear();
-            KolNegative.Clear();
-            KolStrok.Focus();
-            KolStolbcov.Clear();
-            KolStrok1.Clear();
-            KolStrok.Clear();
-            Rez1.Clear();
-            MasData.ItemsSource = null;
-            MatrData.ItemsSource = null;
-        }
         //Заполнение матрицы
         private void FillMatrix_Click(object sender, RoutedEventArgs e)
         {
@@ -221,7 +233,7 @@ namespace УП
                 int row = Convert.ToInt32(KolStrok1.Text);
                 int column = Convert.ToInt32(KolStolbcov.Text);
 
-                //задаем массиву размерность
+                //задаем матрицы размерность
                 matr = new int[row, column];
 
                 //Заполняем матрицу случайными числами
@@ -245,37 +257,61 @@ namespace УП
             {
                 MessageBox.Show("Неверные данные!", "Ошибка", MessageBoxButton.OK,
                   MessageBoxImage.Error);
-                KolStrok.Focus();
-            } 
+                KolStrok1.Focus();
+            }
         }
 
-        //Расчет задания для матрицы
-        private void CalculationOfTheFourthNumber_Click(object sender, RoutedEventArgs e)
+        //Редактирование ячеек
+        private void MatrData_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
         {
-            if (matr == null || matr.Length == 0)
-            {
-                MessageBox.Show("Вы не создали матрицу, укажите размеры матрицы и нажмите кнопку Заполнить", "Ошибка", MessageBoxButton.OK,
+            MasDataRez.ItemsSource = null;
+
+            //Определяем номер столбца
+            int columnIndex = e.Column.DisplayIndex;
+            //Определяем номер строки
+            int rowIndex = e.Row.GetIndex();
+
+            //Заносим  отредоктированое значение в соответствующую ячейку матрицы
+            if (Int32.TryParse(((TextBox)e.EditingElement).Text, out matr[rowIndex, columnIndex]))
+            { }
+            else MessageBox.Show("Неверные данные!", "Ошибка", MessageBoxButton.OK,
                     MessageBoxImage.Error);
-            }
-            else
-            {
-                try
-                {
-                    int a = Convert.ToInt32(A.Text);
-                    int b = Convert.ToInt32(B.Text);
-                    Class1.Calculate4(matr, a, b, out array);
+        }
+        private void KolStrok1AndKolStolbcov_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            MatrData.ItemsSource = null;
+            MasDataRez.ItemsSource = null;
+            A.Clear();
+            B.Clear();
+        }
 
-                    //Выводим матрицу на форму
-                    MasDataRez.ItemsSource = VisualArray.ToDataTable(array).DefaultView;
+        //Очищение 
+        private void Reset_Click(object sender, RoutedEventArgs e)
+        {
+            //Очищаем 
+            Value.Clear();
+            Rez.Clear();
+            Value.Focus();
 
-                }
-                catch
-                {
-                    MessageBox.Show("Неверные данные!", "Ошибка", MessageBoxButton.OK,
-                      MessageBoxImage.Error);
-                    KolStrok1.Focus();
-                }
-            }
+            Value1.Clear();
+            Value2.Clear();
+            Value3.Clear();
+            KolPositive.Clear();
+            KolNegative.Clear();
+            Value1.Focus();
+
+            KolStrok.Clear();
+            Rez1.Clear();
+            MasData.ItemsSource = null;
+            KolStrok.Focus();
+
+            KolStrok1.Clear();
+            KolStolbcov.Clear();
+            A.Clear();
+            B.Clear();
+            MatrData.ItemsSource = null;
+            MasDataRez.ItemsSource = null;
+            KolStrok1.Focus();  
         }
     }
 }
