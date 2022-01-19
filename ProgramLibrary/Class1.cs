@@ -45,5 +45,48 @@ namespace ProgramLibrary
             if (value3 > 0) kol++;
             else kol1++;
         }
+
+        /// <summary>
+        /// Расчет 3 задания: Дан массив. Определить на сколько максимальный элемент больше минимального
+        /// </summary>
+        /// <param name="mas"> одномерный массив </param>
+        /// <returns></returns>
+        public static int Calculate3(int [] mas )
+        {
+            int minvalue = 1000, maxvalue = 0, rez = 0;
+            for (int i = 0; i < mas.Length; i++)
+            {
+                if (mas[i] > maxvalue) maxvalue = mas[i]; 
+            
+                if (mas[i] < minvalue) minvalue = mas[i];
+            }
+            rez = maxvalue - minvalue;
+            return rez;
+        }
+
+        public static void Calculate4(int[,] matr, int a, int b, out int [] array)
+        {
+            int count = 0, k = 0;
+            for (int i = 0; i < matr.GetLength(0); i++)
+            {
+                for(int j = 0; j < matr.GetLength(1); j++)
+                {
+                    if (matr[i, j] > a && matr[i, j] < b) count++;
+                }
+            }
+            array = new int[count];
+            for (int i = 0; i < matr.GetLength(0); i++)
+            {
+                for (int j = 0; j < matr.GetLength(1); j++)
+                {
+                    if (matr[i, j] > a && matr[i, j] < b)
+                    {
+                        array[k] = matr[i, j];
+                        k++;
+                    }
+                }
+            }
+
+        }
     }
 }

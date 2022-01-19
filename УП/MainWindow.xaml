@@ -18,14 +18,16 @@
                     </GroupBox>
                     <GroupBox Header="Результат" HorizontalAlignment="Left" Height="150" Margin="10,154,0,0" VerticalAlignment="Top" Width="312" FontSize="14">
                         <Grid >
-                            <Button Content="Рассчитать" IsDefault="True" HorizontalAlignment="Left" Margin="37,19,0,0" VerticalAlignment="Top" Width="227" Click="CalculationOfTheFirstNumber_Click" Height="38"/>
-                            <TextBox x:Name="Rez" IsReadOnly="True" HorizontalAlignment="Left" Height="30" Margin="10,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="280" TextAlignment="Center"/>
+                            <Button Content="Рассчитать" IsDefault="True" HorizontalAlignment="Left" Margin="38,10,0,0" VerticalAlignment="Top" Width="227" Click="CalculationOfTheFirstNumber_Click" Height="38"/>
+                            <Button Content="Сброс " ToolTip="Сброс"  HorizontalAlignment="Left" Margin="111,88,0,0" VerticalAlignment="Top" Width="83" Height="26" Click="Reset_Click" ></Button>
+                             <TextBox x:Name="Rez" IsReadOnly="True" HorizontalAlignment="Left" Height="30" Margin="10,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="280" TextAlignment="Center"/>
                         </Grid>
                     </GroupBox>
                 </Grid>
             </TabItem>
             <TabItem Header="Задание 2">
                 <Grid Background="#FFE5E5E5">
+                    <Button Content="Сброс " ToolTip="Сброс"  HorizontalAlignment="Left" Margin="388,142,0,0" VerticalAlignment="Top" Width="125" Height="31" Click="Reset_Click" ></Button>
                     <GroupBox Header="Исходные данные" HorizontalAlignment="Left" Height="158" Margin="10,10,0,0" VerticalAlignment="Top" Width="373" FontSize="14">
                         <Grid>
                             <Label Content="Первое число -" HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top" Width="144" Height="30" FontSize="14"/>
@@ -42,16 +44,68 @@
                             <Label Content="Количество отрицательных -" HorizontalAlignment="Left" Margin="132,54,0,0" VerticalAlignment="Top" Height="39"/>
                             <TextBox x:Name="KolPositive" IsReadOnly="True" HorizontalAlignment="Left" Height="28" Margin="365,15,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.583,0.341" TextAlignment="Center"/>
                             <TextBox x:Name="KolNegative" IsReadOnly="True" HorizontalAlignment="Left" Height="28" Margin="365,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextAlignment="Center"/>
-                            <Button Content="Рассчитать" IsDefault="True" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="117" Click="CalculationOfTheSecondNumber_Click" Height="83"/>
+                            <Button Content="Рассчитать" IsDefault="True"  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="117" Click="CalculationOfTheSecondNumber_Click" Height="83"/>
                         </Grid>
                     </GroupBox>
                 </Grid>
             </TabItem>
             <TabItem Header="Задание 3">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <GroupBox Header="Исходные данные" HorizontalAlignment="Left" Height="157" Margin="10,10,0,0" VerticalAlignment="Top" Width="503">
+                        <Grid >
+                            <DataGrid x:Name="MasData"  CanUserAddRows="False" CellEditEnding="MatrData_CellEditEnding" FontSize="12"/>
+
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="Настройка" HorizontalAlignment="Left" Height="143" Margin="10,167,0,0" VerticalAlignment="Top" Width="250">
+                        <Grid >
+                            <Label Content="- Количество колонок" Margin="60,19,0,0" Height="39" VerticalAlignment="Top" HorizontalAlignment="Left" Width="156" Foreground="Black"></Label>
+                            <TextBox x:Name="KolStrok" HorizontalAlignment="Left" Height="39" Margin="10,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45"/>
+                             <Button Content="Заполнить"  IsDefault="True"  Click="FillArray_Click" ToolTip="Создать и заполнить матрицу" Margin="10,72,10,0" Height="27" VerticalAlignment="Top"  />
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="Результат" HorizontalAlignment="Left" Height="143" Margin="265,172,0,0" VerticalAlignment="Top" Width="248">
+                        <Grid >
+                            <TextBox  Name="Rez1" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216"/>
+                            <Button Content="Вычислить" Click="CalculationOfTheThirdNumber_Click" HorizontalAlignment="Left" Width="216" Height="33" VerticalAlignment="Top" Margin="10,38,0,0" ></Button>
+                            <Button Content="Сброс " ToolTip="Сброс"  HorizontalAlignment="Left" Margin="10,76,0,0" VerticalAlignment="Top" Width="216" Height="31" Click="Reset_Click" ></Button>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
             </TabItem>
             <TabItem Header="Задание 4">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <GroupBox Header="Исходные данные" HorizontalAlignment="Left" Height="157" Margin="10,10,0,0" VerticalAlignment="Top" Width="282">
+                        <Grid >
+                            <DataGrid x:Name="MatrData"  CanUserAddRows="False" CellEditEnding="MatrData_CellEditEnding" FontSize="12"/>
+
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="Настройка" HorizontalAlignment="Left" Height="143" Margin="297,10,0,0" VerticalAlignment="Top" Width="216">
+                        <Grid >
+                            <Label Content="- Кол. строк" Margin="50,4,0,0" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="90" ></Label>
+                            <Label Content="- Кол. столбцов" Margin="50,33,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="112" ></Label>
+                            <TextBox x:Name="KolStrok1" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35"/>
+                            <TextBox x:Name="KolStolbcov" HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35"/>
+                            <Button Content="Заполнить"  IsDefault="True"  Click="FillMatrix_Click" ToolTip="Создать и заполнить матрицу" Margin="10,72,10,0" Height="27" VerticalAlignment="Top"  />
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="Результат" HorizontalAlignment="Left" Height="143" Margin="10,172,0,0" VerticalAlignment="Top" Width="324">
+                        <Grid >
+                            <Button Content="Сброс " ToolTip="Сброс"  HorizontalAlignment="Left" Margin="10,84,0,0" VerticalAlignment="Top" Width="292" Height="23" Click="Reset_Click" ></Button>
+                            <DataGrid x:Name="MasDataRez"  CanUserAddRows="False" HorizontalAlignment="Left" Height="69" Margin="10,10,0,0" VerticalAlignment="Top" Width="292"/>
+                        </Grid>
+                    </GroupBox>
+                    <GroupBox Header="Диапазон" HorizontalAlignment="Left" Height="152" Margin="339,158,0,0" VerticalAlignment="Top" Width="174">
+                        <Grid  >
+                            <Label Content="От:" HorizontalAlignment="Left" Margin="25,10,0,0" VerticalAlignment="Top" Height="30"/>
+                            <Label Content="До:" HorizontalAlignment="Left" Margin="25,45,0,0" VerticalAlignment="Top" Height="30"/>
+                             <TextBox x:Name="A" HorizontalAlignment="Left" Height="30" Margin="74,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70"/>
+                            <TextBox x:Name="B" HorizontalAlignment="Left" Height="30" Margin="74,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70"/>
+                            <Button Content="Рассчитать" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Width="142" Height="36" Click="CalculationOfTheFourthNumber_Click"/>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
             </TabItem>
         </TabControl>
         <StatusBar HorizontalAlignment="Left" Height="35" Margin="0,384,0,0" VerticalAlignment="Top" Width="548">
