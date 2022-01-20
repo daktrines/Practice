@@ -18,9 +18,9 @@
                     </GroupBox>
                     <GroupBox Header="Результат" HorizontalAlignment="Left" Height="150" Margin="10,154,0,0" VerticalAlignment="Top" Width="312" FontSize="14">
                         <Grid >
-                            <Button Content="Определить" IsDefault="True" HorizontalAlignment="Left" Margin="38,10,0,0" VerticalAlignment="Top" Width="227" Click="CalculationOfTheFirstNumber_Click" Height="38"/>
+                            <Button Content="Определить" IsDefault="True" HorizontalAlignment="Left" Margin="38,10,0,0" VerticalAlignment="Top" Width="227" Click="CalculationOfTheFirstNumber_Click" Height="43"/>
                             <Button Content="Сброс " ToolTip="Сброс"  HorizontalAlignment="Left" Margin="111,88,0,0" VerticalAlignment="Top" Width="83" Height="26" Click="Reset_Click" ></Button>
-                             <TextBox x:Name="Rez" IsReadOnly="True" HorizontalAlignment="Left" Height="30" Margin="10,53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="280" TextAlignment="Center"/>
+                            <TextBox x:Name="Rez" IsReadOnly="True" HorizontalAlignment="Left" Height="25" Margin="10,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="280" TextAlignment="Center"/>
                         </Grid>
                     </GroupBox>
                 </Grid>
@@ -58,9 +58,9 @@
                     </GroupBox>
                     <GroupBox Header="Настройка" HorizontalAlignment="Left" Height="143" Margin="10,167,0,0" VerticalAlignment="Top" Width="250">
                         <Grid >
-                            <Label Content="- Количество колонок" Margin="60,19,0,0" Height="39" VerticalAlignment="Top" HorizontalAlignment="Left" Width="156" Foreground="Black"></Label>
-                            <TextBox x:Name="KolStrok" HorizontalAlignment="Left" Height="39" Margin="10,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" TextChanged="KolStrok_TextChanged"/>
-                             <Button Content="Заполнить"  IsDefault="True"  Click="FillArray_Click" ToolTip="Создать и заполнить матрицу" Margin="10,72,10,0" Height="27" VerticalAlignment="Top"  />
+                            <Label Content="- Количество колонок" Margin="60,28,0,0" Height="39" VerticalAlignment="Top" HorizontalAlignment="Left" Width="156" Foreground="Black"></Label>
+                            <TextBox x:Name="KolStrok" HorizontalAlignment="Left" Height="30" Margin="10,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" TextChanged="KolStrok_TextChanged" MaxLength="2"/>
+                            <Button Content="Заполнить"  IsDefault="True"  Click="FillArray_Click" ToolTip="Создать и заполнить матрицу" Margin="10,72,10,0" Height="27" VerticalAlignment="Top"  />
                         </Grid>
                     </GroupBox>
                     <GroupBox Header="Результат" HorizontalAlignment="Left" Height="143" Margin="265,172,0,0" VerticalAlignment="Top" Width="248">
@@ -84,8 +84,8 @@
                         <Grid >
                             <Label Content="- Кол. строк" Margin="50,4,0,0" Height="29" VerticalAlignment="Top" HorizontalAlignment="Left" Width="90" ></Label>
                             <Label Content="- Кол. столбцов" Margin="50,33,0,0" Height="26" VerticalAlignment="Top" HorizontalAlignment="Left" Width="112" ></Label>
-                            <TextBox x:Name="KolStrok1" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" TextChanged="KolStrok1AndKolStolbcov_TextChanged"/>
-                            <TextBox x:Name="KolStolbcov" HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" TextChanged="KolStrok1AndKolStolbcov_TextChanged"/>
+                            <TextBox x:Name="KolStrok1" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" TextChanged="KolStrok1AndKolStolbcov_TextChanged" MaxLength="2"/>
+                            <TextBox x:Name="KolStolbcov" HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="35" TextChanged="KolStrok1AndKolStolbcov_TextChanged" MaxLength="2"/>
                             <Button Content="Заполнить"  IsDefault="True"  Click="FillMatrix_Click" ToolTip="Создать и заполнить матрицу" Margin="10,72,10,0" Height="27" VerticalAlignment="Top"  />
                         </Grid>
                     </GroupBox>
@@ -99,8 +99,8 @@
                         <Grid  >
                             <Label Content="От:" HorizontalAlignment="Left" Margin="25,10,0,0" VerticalAlignment="Top" Height="30"/>
                             <Label Content="До:" HorizontalAlignment="Left" Margin="25,45,0,0" VerticalAlignment="Top" Height="30"/>
-                             <TextBox x:Name="A" HorizontalAlignment="Left" Height="30" Margin="74,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70"/>
-                            <TextBox x:Name="B" HorizontalAlignment="Left" Height="30" Margin="74,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70"/>
+                            <TextBox x:Name="A" HorizontalAlignment="Left" Height="30" Margin="74,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" MaxLength="3"/>
+                            <TextBox x:Name="B" HorizontalAlignment="Left" Height="30" Margin="74,45,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="70" MaxLength="3"/>
                             <Button Content="Сформировать" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Width="142" Height="36" Click="CalculationOfTheFourthNumber_Click"/>
                         </Grid>
                     </GroupBox>

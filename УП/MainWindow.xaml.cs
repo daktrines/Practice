@@ -242,7 +242,7 @@ namespace УП
                 {
                     for (int j = 0; j < column; j++)
                     {
-                        matr[i, j] = rnd.Next(-25, 25);
+                        matr[i, j] = rnd.Next(-50, 50);
                     }
                 }
                 //Выводим матрицу на форму
