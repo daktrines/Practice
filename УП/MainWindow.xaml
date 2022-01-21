@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:УП"
         mc:Ignorable="d"
-        Title="УП по РПМ" Height="459" Width="562.666" WindowStartupLocation="CenterScreen" Loaded="Windows_Loaded" MinHeight="459" MinWidth="563" Closing="Windows_Closing" Icon="coding_computer_pc_screen_code_icon_193925.ico">
+        Title="УП по РПМ" Height="459" Width="562.666" WindowStartupLocation="CenterScreen" Loaded="Windows_Loaded" Closing="Windows_Closing" Icon="coding_computer_pc_screen_code_icon_193925.ico" ResizeMode="NoResize">
     <Grid>
         <TabControl HorizontalAlignment="Left" Height="351" Margin="10,28,0,0" VerticalAlignment="Top" Width="529" FontSize="14">
             <TabItem Header="Задание 1">
