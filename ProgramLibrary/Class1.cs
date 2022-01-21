@@ -53,7 +53,7 @@ namespace ProgramLibrary
         /// <returns></returns>
         public static int Calculate3(int [] mas )
         {
-            int minvalue = 1000, maxvalue = 0, rez = 0;
+            int minvalue = 1000, maxvalue = 0, rez;
             for (int i = 0; i < mas.Length; i++)
             {
                 if (mas[i] > maxvalue) maxvalue = mas[i];
