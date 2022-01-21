@@ -28,7 +28,6 @@ namespace УП
             InitializeComponent();
             Value.Focus();
         }
-        
 
         DispatcherTimer _timer;// Описываем таймер
         private void Windows_Loaded(object sender, RoutedEventArgs e)
