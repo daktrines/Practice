@@ -28,9 +28,7 @@ namespace УП
             InitializeComponent();
             Value.Focus();
         }
-        int[] mas;
-        int[,] matr;
-        int[] array;
+        
 
         DispatcherTimer _timer;// Описываем таймер
         private void Windows_Loaded(object sender, RoutedEventArgs e)
@@ -134,6 +132,7 @@ namespace УП
         }
 
         //Расчет задания №3
+        int[] mas;
         private void CalculationOfTheThirdNumber_Click(object sender, RoutedEventArgs e)
         {
             KolStrok.Focus();
@@ -199,6 +198,9 @@ namespace УП
         }
 
         //Расчет задания №4
+        
+        int[,] matr;
+        int[] array;
         private void CalculationOfTheFourthNumber_Click(object sender, RoutedEventArgs e)
         {
             KolStrok1.Focus();
