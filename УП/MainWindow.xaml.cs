@@ -21,6 +21,7 @@ namespace УП
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
+    
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -68,6 +69,35 @@ namespace УП
         private void Exit_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        //Очищение 
+        private void Reset_Click(object sender, RoutedEventArgs e)
+        {
+            //Очищаем 
+            Value.Clear();
+            Rez.Clear();
+            Value.Focus();
+
+            Value1.Clear();
+            Value2.Clear();
+            Value3.Clear();
+            KolPositive.Clear();
+            KolNegative.Clear();
+            Value1.Focus();
+
+            KolStrok.Clear();
+            Rez1.Clear();
+            MasData.ItemsSource = null;
+            KolStrok.Focus();
+
+            KolStrok1.Clear();
+            KolStolbcov.Clear();
+            A.Clear();
+            B.Clear();
+            MatrData.ItemsSource = null;
+            MasDataRez.ItemsSource = null;
+            KolStrok1.Focus();
         }
 
         //Расчет задания №1
@@ -288,35 +318,6 @@ namespace УП
             MasDataRez.ItemsSource = null;
             A.Clear();
             B.Clear();
-        }
-
-        //Очищение 
-        private void Reset_Click(object sender, RoutedEventArgs e)
-        {
-            //Очищаем 
-            Value.Clear();
-            Rez.Clear();
-            Value.Focus();
-
-            Value1.Clear();
-            Value2.Clear();
-            Value3.Clear();
-            KolPositive.Clear();
-            KolNegative.Clear();
-            Value1.Focus();
-
-            KolStrok.Clear();
-            Rez1.Clear();
-            MasData.ItemsSource = null;
-            KolStrok.Focus();
-
-            KolStrok1.Clear();
-            KolStolbcov.Clear();
-            A.Clear();
-            B.Clear();
-            MatrData.ItemsSource = null;
-            MasDataRez.ItemsSource = null;
-            KolStrok1.Focus();  
         }
     }
 }
