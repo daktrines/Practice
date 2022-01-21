@@ -77,6 +77,7 @@ namespace УП
         private void CalculationOfTheFirstNumber_Click(object sender, RoutedEventArgs e)
         {
             Value.Focus();
+            //Проверка поля на корректность введенных данных
             try
             {
                 int value = Convert.ToInt32(Value.Text);
@@ -88,7 +89,7 @@ namespace УП
                 }
                 else
                 {
-                    MessageBox.Show("Неверные данные!", "Ошибка", MessageBoxButton.OK,
+                    MessageBox.Show("Неверные данные! Число должно быть трехзначным!", "Ошибка", MessageBoxButton.OK,
                       MessageBoxImage.Error);
                     Value.Focus();
                 }
@@ -109,6 +110,7 @@ namespace УП
         private void CalculationOfTheSecondNumber_Click(object sender, RoutedEventArgs e)
         {
             Value1.Focus();
+            //Проверка поля на корректность введенных данных
             try
             {
                 int value1 = Convert.ToInt32(Value1.Text);
@@ -144,6 +146,7 @@ namespace УП
             }
             else
             {
+                //Проверка поля на корректность введенных данных
                 try
                 {
                     int rez = Class1.Calculate3(mas);
@@ -206,6 +209,7 @@ namespace УП
             }
             else
             {
+                //Проверка поля на корректность введенных данных
                 try
                 {
                     int a = Convert.ToInt32(A.Text);
