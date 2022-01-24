@@ -188,6 +188,19 @@ namespace УП
                 }
             }
         }
+        //Редактирование ячеек
+        private void MasData_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
+        {
+            //Определяем номер столбца
+            int columnIndex = e.Column.DisplayIndex;
+
+            //Заносим  отредоктированое значение в соответствующую ячейку матрицы
+            if (Int32.TryParse(((TextBox)e.EditingElement).Text, out mas[columnIndex]))
+            { }
+            else MessageBox.Show("Неверные данные!", "Ошибка", MessageBoxButton.OK,
+                    MessageBoxImage.Error);
+            Rez1.Clear();
+        }
 
         //Заполнение массива
         private void FillArray_Click(object sender, RoutedEventArgs e)
